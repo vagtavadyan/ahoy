@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             docker image pull vagtavadyan/ahoy
-            docker container stop ahoy-prod
+            docker container stop ahoy
             docker container prune -f
-            docker run -d --name ahoy-prod --restart unless-stopped -p 80:80 -p 443:443 vagtavadyan/ahoy
+            docker run -d --name ahoy --restart unless-stopped -p 80:80 -p 443:443 vagtavadyan/ahoy
             docker image prune -f
