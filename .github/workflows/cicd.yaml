@@ -5,7 +5,7 @@ on: push
 jobs:
   build:
     name: Building image
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
           tags: vagtavadyan/ahoy:latest  # Please change the username here
   update_server:
     name: Updating prod environment
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Replacing container
